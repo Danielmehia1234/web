@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perro Darek - Cuidado de Mascotas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5dc;
+      color: #4b3d3d;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #d2b48c;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      width: 300px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 15px;
+      background: #d2b48c;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #ffeb3b;
+      color: #4b3d3d;
+    }
+
+    .hero {
+      background: url('perritos.webp') no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      width: 100%;
+      position: relative;
+    }
+
+    .content {
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      text-align: center;
+      display: none;
+    }
+
+    footer {
+      background: #d2b48c;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Dog Darek" class="logo">
+    <nav>
+      <a href="#home" onclick="showContent('home')">Inicio</a>
+      <a href="#about" onclick="showContent('about')">¿A qué nos dedicamos?</a>
+      <a href="#vision" onclick="showContent('vision')">Visión</a>
+      <a href="#mission" onclick="showContent('mission')">Misión</a>
+      <a href="#values" onclick="showContent('values')">Valores</a>
+      <a href="#contact" onclick="showContent('contact')">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>El Mejor Cuidado para tu Mascota</h1>
+  </div>
+
+  <div id="home" class="content">
+    <h2>Bienvenidos a Dog Darek</h2>
+    <p>Brindamos el mejor cuidado y productos para tu mascota.</p>
+  </div>
+
+  <div id="about" class="content">
+    <h2>¿A qué nos dedicamos?</h2>
+    <p>Nos especializamos en el cuidado integral de mascotas.</p>
+  </div>
+
+  <div id="vision" class="content">
+    <h2>Visión</h2>
+    <p>Ser líderes en el bienestar de las mascotas.</p>
+  </div>
+
+  <div id="mission" class="content">
+    <h2>Misión</h2>
+    <p>Proporcionar cuidado de excelencia.</p>
+  </div>
+
+  <div id="values" class="content">
+    <h2>Valores</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li>🐾 Compromiso</li>
+      <li>🐾 Calidad</li>
+      <li>🐾 Pasión</li>
+    </ul>
+  </div>
+
+  <div id="contact" class="content">
+    <h2>Contacto</h2>
+    <form action="guardar.php" method="post">
+      <input type="text" name="nombre" placeholder="Tu Nombre" required>
+      <input type="email" name="correo" placeholder="Tu Correo" required>
+      <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2024 Dog Darek. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function showContent(section) {
+      document.querySelectorAll('.content').forEach(content => {
+        content.style.display = 'none';
+      });
+      document.getElementById(section).style.display = 'block';
+    }
+
+    window.onload = function() {
+      let hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        showContent(hash);
+      } else {
+        showContent('home');
+      }
+    };
+  </script>
+</body>
+</html>
